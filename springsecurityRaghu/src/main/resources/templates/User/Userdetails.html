@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AppleDetails</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+    <div class="card">
+
+        <div class="card-header"><h1>Apple Details</h1></div>
+        <div class="card-body">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">User Id</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="apple:${users}">
+                    <th th:text="${apple.id}"></th>
+                    <td th:text="${apple.username}"></td>
+                    <td th:text="${apple.password}"></td>
+                    <td th:text="${apple.email}"></td>
+                    <td th:text="${apple.role}"></td>
+                    <td th:text="${apple.status}"></td>
+                    <td>
+                        <a class="btn btn-primary" th:href="@{/user/update/{id}(id=${apple.id})}">Update Apple</a>
+
+
+                        <a class="btn btn-danger" th:href="@{/user/delete/{id}(id=${apple.id})}">Delete Apple</a>
+
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <h5 class="text-center">
+                <a th:href="@{/user/user}">Create a New Apple</a>
+            </h5>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

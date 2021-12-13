@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CreateApple</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<p th:text="${token}"></p>
+<div class="card container">
+    <div class="card-header">
+
+        <div class="text-center"><h2>User Generatetoken</h2></div>
+    </div>
+    <div class="card-body">
+        <form th:object="${jwtrequest}" th:action="@{/take/generatetoken}" method="post">
+
+
+            <div class="form-group">
+
+                <input type="text" class="form-control" th:field="*{username}" id="username"
+                       placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+
+                <input type="text" class="form-control" id="password" th:field="*{password}"
+                       placeholder="Enter Password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>

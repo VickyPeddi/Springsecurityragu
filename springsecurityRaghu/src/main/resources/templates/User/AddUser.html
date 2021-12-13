@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CreateApple</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body><h1>Create Apple</h1>
+
+<div class="card container">
+    <div class="card-header">
+
+        <div class="text-center"><h2>Create Apple</h2></div>
+    </div>
+    <div class="card-body">
+        <form th:object="${user}" th:action="@{/user/adduser}" method="post">
+
+            <input type="hidden" th:field="*{id}">
+
+
+            <div class="form-group">
+
+                <input type="text" class="form-control" th:field="*{username}" id="username"
+                       placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+
+                <input type="text" class="form-control" id="password" th:field="*{password}"
+                       placeholder="Enter Password">
+            </div>
+            <div class="form-group">
+
+                <input type="text" class="form-control" id="email" th:field="*{email}"
+                       placeholder="Enter Password">
+            </div>
+            <div class="form-group">
+                <select class="form-control" th:field="*{role}">
+                    <option value="">Select Role</option>
+                    <option th:value="USER">User</option>
+                    <option th:value="ADMIN">Admin</option>
+
+                </select>
+            </div>
+            <div class="form-group form-check">
+                Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="status" value="true">
+
+                    <label class="form-check-label" for="inlineCheckbox1">Active</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="status" value="false">
+                    <label class="form-check-label" for="inlineCheckbox2">InActive</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
